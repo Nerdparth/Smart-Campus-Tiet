@@ -1,4 +1,4 @@
-from ninja import ModelSchema
+from ninja import ModelSchema,Schema
 from .models import books_to_be_bought,Inventory,Books
 
 
@@ -16,3 +16,7 @@ class BoughtSchema(ModelSchema):
     class Meta:
         model = Books
         fields = '__all__'
+
+class DeleteBookSchema(Schema):
+    book_name : str
+    author : str
