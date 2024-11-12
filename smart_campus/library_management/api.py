@@ -4,7 +4,7 @@ from .schemas import BuyingSchema,GetBudget,BoughtSchema
 from django.http import JsonResponse
 
 
-app = NinjaAPI()
+app = NinjaAPI(urls_namespace="library_api")
 
 
 @app.post("/add-item", response=BuyingSchema)

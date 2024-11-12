@@ -1,10 +1,10 @@
 # weather_report/api.py
-from ninja import Router
+from ninja import NinjaAPI
 from .models import SensorData
 from .schemas import SensorDataSchema, CreateSensorDataSchema
 from django.shortcuts import get_object_or_404
 
-router = Router()
+router = NinjaAPI(urls_namespace="weather_api")
 
 # POST route to add new sensor data
 @router.post("/add", response={201: SensorDataSchema})
