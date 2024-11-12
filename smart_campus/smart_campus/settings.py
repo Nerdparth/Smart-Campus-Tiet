@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'library_management',
     'weather_report',
-    'parking_management'
+    'parking_management',
+    'event_management'
 ]
 
 MIDDLEWARE = [
