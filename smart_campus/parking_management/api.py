@@ -7,11 +7,26 @@ from django.shortcuts import get_object_or_404
 
 app2 = NinjaAPI(urls_namespace="parking_management")
 
+@app2.post("/add_or_update", response=ParkingDataSchema)
+def add_or_update_parking_data(request, payload: CreateParkingDataSchema):
+    """Add or update parking data entry based on sensor_id."""
 
-@app2.post("/add", response=ParkingDataSchema)
-def add_parking_data(request, payload: CreateParkingDataSchema):
-    """Add a new parking data entry."""
-    parking_data = ParkingData.objects.create(**payload.dict())
+    # Get all records for the given sensor_id, ordered by timestamp, skipping the latest one
+    old_records = ParkingData.objects.filter(sensor_id=payload.sensor_id).order_by('-timestamp')[1:]
+    
+    # Delete old records by their IDs
+    old_record_ids = old_records.values_list('id', flat=True)
+    ParkingData.objects.filter(id__in=old_record_ids).delete()
+
+    # Update or create the latest record
+    parking_data, created = ParkingData.objects.update_or_create(
+        sensor_id=payload.sensor_id,
+        defaults={
+            "sensor_location": payload.sensor_location,
+            "parking_status": payload.parking_status,
+        }
+    )
+    
     return parking_data
 
 
