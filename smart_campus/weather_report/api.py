@@ -6,16 +6,19 @@ from django.shortcuts import get_object_or_404
 
 router = NinjaAPI(urls_namespace="weather_api")
 
+
 # POST route to add new sensor data
 @router.post("/add", response={201: SensorDataSchema})
 def add_sensor_data(request, payload: CreateSensorDataSchema):
     sensor_data = SensorData.objects.create(**payload.dict())
     return sensor_data
 
+
 # GET route to fetch all sensor data
 @router.get("/data", response=list[SensorDataSchema])
 def get_all_sensor_data(request):
     return SensorData.objects.all()
+
 
 # GET route to fetch data by ID
 @router.get("/data/{id}", response=SensorDataSchema)

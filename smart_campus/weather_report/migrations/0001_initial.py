@@ -7,18 +7,25 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='SensorData',
+            name="SensorData",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('air_quality', models.IntegerField()),
-                ('air_humidity', models.FloatField()),
-                ('temperature', models.FloatField()),
-                ('timestamp', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("air_quality", models.IntegerField()),
+                ("air_humidity", models.FloatField()),
+                ("temperature", models.FloatField()),
+                ("timestamp", models.DateTimeField(auto_now_add=True)),
             ],
         ),
     ]

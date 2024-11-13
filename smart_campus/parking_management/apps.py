@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class ParkingManagementConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'parking_management'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "parking_management"

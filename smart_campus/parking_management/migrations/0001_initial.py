@@ -7,18 +7,25 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ParkingData',
+            name="ParkingData",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sensor_id', models.IntegerField()),
-                ('sensor_location', models.CharField(max_length=300)),
-                ('parking_status', models.BooleanField()),
-                ('timestamp', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("sensor_id", models.IntegerField()),
+                ("sensor_location", models.CharField(max_length=300)),
+                ("parking_status", models.BooleanField()),
+                ("timestamp", models.DateTimeField(auto_now_add=True)),
             ],
         ),
     ]

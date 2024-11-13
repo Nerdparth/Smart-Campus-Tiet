@@ -1,6 +1,7 @@
 # weather_report/models.py
 from django.db import models
 
+
 class SensorData(models.Model):
     air_quality = models.IntegerField()
     air_humidity = models.FloatField()

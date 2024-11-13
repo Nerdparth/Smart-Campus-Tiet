@@ -1,6 +1,7 @@
 from ninja import Schema
 from datetime import datetime
 
+
 # Output Schema
 class ParkingDataSchema(Schema):
     id: int
@@ -8,6 +9,7 @@ class ParkingDataSchema(Schema):
     sensor_location: str
     parking_status: bool
     timestamp: datetime
+
 
 # Input Schema
 class CreateParkingDataSchema(Schema):

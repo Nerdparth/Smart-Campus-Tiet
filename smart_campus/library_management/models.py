@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class books_to_be_bought(models.Model):
     book_name = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
@@ -7,8 +8,10 @@ class books_to_be_bought(models.Model):
     price = models.IntegerField(default=0)
     remarks = models.CharField(max_length=2000, default="nothing")
 
+
 class Inventory(models.Model):
     Budget = models.IntegerField(default=50000)
+
 
 class Books(models.Model):
     book_name = models.CharField(max_length=200)
