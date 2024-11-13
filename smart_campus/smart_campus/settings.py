@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-7rkypny&-0&3-v*^!7dd1a03@+8h6nin!3(=@-q&3#l(4$z*vi
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = [
+    'https://smart-campus-tiet-production.up.railway.app',  # Include your Railway app's URL
+]
 
 
 # Application definition
