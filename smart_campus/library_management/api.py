@@ -37,7 +37,7 @@ def edit_budget(request, details:GetBudget):
     return JsonResponse({"message": "updated the budget"})
 
 @app.post("/add-bought-item", response=BoughtSchema)
-def add_item(request, details:BoughtSchema):
+def add_bought_item(request, details:BoughtSchema):
 
     book_name = details.book_name
     quantity = details.quantity
@@ -58,7 +58,7 @@ def get_books(request):
     return data
 
 @app.get("/get-all-future-books")
-def get_books(request):
+def get_future_books(request):
     books = books_to_be_bought.objects.all()
     data = []
     for book in books:
@@ -79,7 +79,7 @@ def delete_book_from_future_books(request, details : DeleteBookSchema):
     return JsonResponse({"message" : "book deleted from db"})
 
 @app.post("/delete-book", response=DeleteBookSchema)
-def delete_book_from_future_books(request, details : DeleteBookSchema):
+def delete_books(request, details : DeleteBookSchema):
     book_name = details.book_name
     author = details.author
     delete = Books.objects.filter(book_name=book_name, author=author).delete()

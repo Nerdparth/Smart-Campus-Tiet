@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart-Campus API Docs</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body,
+    html {
+        height: 100%;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+    }
+
+    .hero {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        background: linear-gradient(270deg, #ffb6c1, #ffc3d6, #ffd1da, #add8e6, #c3daff, #d0ffd0);
+        background-size: 600% 600%;
+        animation: gradientAnimation 10s ease infinite;
+        padding: 1rem;
+    }
+
+    .hero-content {
+        color: #040404;
+        max-width: 800px;
+        width: 90%;
+    }
+
+    .hero-content h1 {
+        font-size: 5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-content .cta {
+        padding: 0.75rem 2rem;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 25px;
+        margin: 10px 0;
+        transition: background 0.3s ease;
+        display: inline-block;
+        font-size: 1rem;
+    }
+
+    .hero-content .cta:hover {
+        background: #333;
+    }
+
+    .hero-content a {
+        display: block;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 3rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+        }
+
+        .hero-content .cta {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+        }
+
+        .hero-content .cta {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+        }
+    }
+</style>
+
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Smart-Campus API</h1>
+            <p>Your reference to APIs.</p>
+
+            <a href="/api/docs" class="cta">Library API Endpoints</a>
+            <a href="/weather-api/docs" class="cta">Weather API Endpoints</a>
+            <a href="/parking-management/docs" class="cta">Parking API Endpoints</a>
+            <a href="/events-api/docs" class="cta">Events API Endpoints</a>
+        </div>
+    </section>
+</body>
+
+</html>

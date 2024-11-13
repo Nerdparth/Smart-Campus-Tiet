@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'library_management',
     'weather_report',
     'parking_management',
-    'event_management'
+    'event_management',
+    'landing_page'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'smart_campus.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/ 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
