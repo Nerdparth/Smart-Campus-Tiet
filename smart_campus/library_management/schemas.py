@@ -20,3 +20,8 @@ class BoughtSchema(ModelSchema):
 class DeleteBookSchema(Schema):
     book_name : str
     author : str
+
+class BookCountSchema(Schema):
+    book_count : int
+    requests_count : int
+    

@@ -1,6 +1,6 @@
 from ninja import NinjaAPI
 from .models import books_to_be_bought, Inventory, Books
-from .schemas import BuyingSchema,GetBudget,BoughtSchema, DeleteBookSchema
+from .schemas import BuyingSchema,GetBudget,BoughtSchema, DeleteBookSchema, BookCountSchema
 from django.http import JsonResponse
 
 
@@ -84,4 +84,11 @@ def delete_book_from_future_books(request, details : DeleteBookSchema):
     author = details.author
     delete = Books.objects.filter(book_name=book_name, author=author).delete()
     return JsonResponse({"message" : "book deleted from db"})
+
+
+@app.get("/book-count", response=BookCountSchema)
+def get_count_of_books(request):
+    books = Books.objects.all().count()
+    requested_books = books_to_be_bought.objects.all().count()
+    return JsonResponse({"book_count" : books, "requested_book_count" : requested_books})
 
