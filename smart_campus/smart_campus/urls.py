@@ -5,7 +5,7 @@ from weather_report.api import router
 from parking_management.api import app2
 from landing_page.views import landing
 from event_management.api import app3
-
+from fire.api import fire
 
 # Set unique urls_namespace for each API instance
 # app.urls_namespace = "library_api"  # Ensure unique namespace for library_management
@@ -20,4 +20,5 @@ urlpatterns = [
     path("parking-management/", app2.urls),
     path("events-api/", app3.urls),
     path("", landing, name="index"),
+    path("fire-api/",fire.urls)
 ]
