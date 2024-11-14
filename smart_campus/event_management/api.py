@@ -1,5 +1,5 @@
 from ninja import NinjaAPI
-from .schemas import AddEventSchema, DeleteEventSchema, RegisterEventSchema
+from .schemas import AddEventSchema, DeleteEventSchema, RegisterEventSchema, EventsCountSchema
 from .models import Events, Attendees
 from django.http import JsonResponse
 from django.utils import timezone
@@ -119,3 +119,9 @@ def get_all_attendees(request, event_name: str):
             }
         )
     return data
+
+@app3.get("/events-count", response= EventsCountSchema)
+def get_events_count(request):
+    total_events = Events.objects.all().count()
+    upcoming_events = Events.objects.filter(datetime__gt=timezone.now()).count()
+    return JsonResponse({"event_count" : total_events, "upcoming_events_count" : upcoming_events})

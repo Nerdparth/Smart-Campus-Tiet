@@ -17,3 +17,7 @@ class RegisterEventSchema(Schema):
     name: str
     email: str
     semester: str
+
+class EventsCountSchema(Schema):
+    events_count : int
+    upcoming_events_count : int

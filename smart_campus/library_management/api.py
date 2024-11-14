@@ -6,6 +6,7 @@ from .schemas import (
     BoughtSchema,
     DeleteBookSchema,
     BookCountSchema,
+    UpdateStatusSchema
 )
 from django.http import JsonResponse
 
@@ -89,6 +90,7 @@ def get_future_books(request):
                 "author": book.author,
                 "price": book.price,
                 "remarks": book.remarks,
+                "status" : book.status
             }
         )
     return data
@@ -117,3 +119,12 @@ def get_count_of_books(request):
     books = Books.objects.all().count()
     requested_books = books_to_be_bought.objects.all().count()
     return JsonResponse({"book_count": books, "requested_book_count": requested_books})
+
+@app.post("/update-status", response=UpdateStatusSchema)
+def update_order_status(request, details : UpdateStatusSchema):
+    book_name = details.book_name
+    author = details.author
+    status = details.status
+    books = books_to_be_bought.objects.filter(book_name= book_name, author=author).update(status=status)
+    return JsonResponse({"message": "Status updated for the order"})
+
