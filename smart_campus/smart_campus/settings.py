@@ -39,6 +39,14 @@ CSRF_TRUSTED_ORIGINS = [
     "https://smart-campus-tiet-production.up.railway.app",  # Include your Railway app's URL
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://tiet-hackathon.vercel.app",  # Frontend URL
+    "http://localhost:3000",     # For local development (if applicable)
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -49,6 +57,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "corsheaders",
     "library_management",
     "weather_report",
     "parking_management",
@@ -58,8 +67,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+ 
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
