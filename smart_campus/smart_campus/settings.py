@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     "parking_management",
     "event_management",
     "landing_page",
-    "fire"
+    "fire",
+    "garbage"
 ]
 
 MIDDLEWARE = [
