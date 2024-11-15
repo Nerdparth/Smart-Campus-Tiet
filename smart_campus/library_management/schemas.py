@@ -28,3 +28,6 @@ class DeleteBookSchema(Schema):
 class BookCountSchema(Schema):
     book_count: int
     requests_count: int
+
+class UpdateStatusSchema(Schema):
+    status : str
