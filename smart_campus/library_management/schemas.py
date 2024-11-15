@@ -31,5 +31,3 @@ class BookCountSchema(Schema):
 
 class UpdateStatusSchema(Schema):
     status : str
-    book_name : str
-    author : str
