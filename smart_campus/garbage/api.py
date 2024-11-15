@@ -25,11 +25,13 @@ def garbage_sensor_alert(request, payload: GarbageSensorRequestSchema):
     # Send SMS notification
     message_body = f"Garbage Overflow Alert! Location: {sensor.location} (Sensor ID: {sensor.sensor_id})"
     
-    client.messages.create(
-        body=message_body,
-        from_=os.getenv('TWILIO_PHONE_NUMBER'),
-        to=os.getenv('AUTHORITY_PHONE_NUMBER')
-    )
+    # client.messages.create(
+    #     body=message_body,
+    #     from_=os.getenv('TWILIO_PHONE_NUMBER'),
+    #     to=os.getenv('AUTHORITY_PHONE_NUMBER')
+    # )
+
+    print(f"garbage overflown for {sensor.location}")
 
     return "Overflow alert sent to authorities."
 

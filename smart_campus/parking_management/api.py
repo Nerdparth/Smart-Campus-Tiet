@@ -26,7 +26,7 @@ def add_or_update_parking_data(request, payload: CreateParkingDataSchema):
             "parking_status": payload.parking_status,
         }
     )
-    
+    print(f"status of {payload.sensor_id} changed to {payload.parking_status} at {payload.sensor_location}")
     return parking_data
 
 

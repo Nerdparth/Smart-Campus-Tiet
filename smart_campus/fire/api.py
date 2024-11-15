@@ -27,11 +27,13 @@ def sensor_alert(request, payload: FireSensorDataSchema):
                    f"Temperature Level: {payload.temp_level}"
 
     # Send SMS via Twilio
-    client.messages.create(
-        body=message_body,
-        from_=os.getenv('TWILIO_PHONE_NUMBER'),
-        to=os.getenv('AUTHORITY_PHONE_NUMBER')
-    )
+    # client.messages.create(
+    #     body=message_body,
+    #     from_=os.getenv('TWILIO_PHONE_NUMBER'),
+    #     to=os.getenv('AUTHORITY_PHONE_NUMBER')
+    # )
+
+    print(f"fire detected at {location}")
 
     return "Alert sent to authorities."
 

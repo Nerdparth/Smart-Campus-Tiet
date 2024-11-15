@@ -7,6 +7,7 @@ from landing_page.views import landing
 from event_management.api import app3
 from fire.api import fire
 from garbage.api import garbage
+from meeting.api import meeting
 
 # Set unique urls_namespace for each API instance
 # app.urls_namespace = "library_api"  # Ensure unique namespace for library_management
@@ -22,5 +23,6 @@ urlpatterns = [
     path("events-api/", app3.urls),
     path("", landing, name="index"),
     path("fire-api/",fire.urls),
-    path("garbage-api/",garbage.urls)
+    path("garbage-api/",garbage.urls),
+    path("meeting-api/",meeting.urls)
 ]

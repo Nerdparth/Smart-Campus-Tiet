@@ -18,6 +18,7 @@ def update_sensor_data(request, payload: CreateSensorDataSchema):
             "temperature": payload.temperature,
         }
     )
+    print(f"response recieved {payload.air_quality},{payload.air_humidity},{payload.temperature}")
     return sensor_data
 
 
