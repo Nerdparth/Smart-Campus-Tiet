@@ -102,6 +102,18 @@ def register_for_event(request, details: RegisterEventSchema):
         semester=details.semester,
     )
 
+    send_email_data = {
+  "email" : details.email,
+  "name" : details.name,
+  "url" : "#",
+  "template" : "registeration" ,
+  "subject" : "Thanks for registering",
+  "event_name" : details.event_name,
+  "date" : "16 Nov, 2024"
+}
+
+    send_email = httpx.post("https://0a8d-117-203-246-41.ngrok-free.app/api/process-data/", json=send_email_data)
+
     return JsonResponse({"message": "Registered for the event successfully"})
 
 
