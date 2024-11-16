@@ -66,7 +66,8 @@ INSTALLED_APPS = [
     "fire",
     "garbage",
     "meeting",
-    "announcements"
+    "announcements",
+    "schedule"
 ]
 
 MIDDLEWARE = [

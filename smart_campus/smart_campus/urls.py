@@ -9,6 +9,7 @@ from fire.api import fire
 from garbage.api import garbage
 from meeting.api import meeting
 from announcements.api import announcements
+from schedule.api import schedule
 
 # Set unique urls_namespace for each API instance
 # app.urls_namespace = "library_api"  # Ensure unique namespace for library_management
@@ -26,5 +27,6 @@ urlpatterns = [
     path("fire-api/",fire.urls),
     path("garbage-api/",garbage.urls),
     path("meeting-api/",meeting.urls),
-    path("announcements-api/",announcements.urls)
+    path("announcements-api/",announcements.urls),
+    path("schedule-api/",schedule.urls)
 ]
