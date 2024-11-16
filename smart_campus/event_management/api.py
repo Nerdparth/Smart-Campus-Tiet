@@ -4,7 +4,7 @@ from .models import Events, Attendees
 from django.http import JsonResponse
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
-
+import httpx
 
 app3 = NinjaAPI(urls_namespace="event_management")
 
