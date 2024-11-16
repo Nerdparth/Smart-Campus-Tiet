@@ -65,7 +65,8 @@ INSTALLED_APPS = [
     "landing_page",
     "fire",
     "garbage",
-    "meeting"
+    "meeting",
+    "announcements"
 ]
 
 MIDDLEWARE = [
